@@ -6,39 +6,39 @@
 ## What to Expect
 
 When ARIA searches your Gmail, you will see her:
-1. Call the `search_emails` tool with a query
-2. Get back a list of results
-3. Call `read_email` on specific ones to get the details
-4. Synthesize what she found into an answer
+1. Call the `search_emails` tool with a query she constructs
+2. Get back a list of results (subject, sender, date, preview)
+3. Call `read_email` on specific ones to get the full content
+4. Synthesize everything into a human answer
 
-You can watch all of this happen in real time. Each tool call is visible in Claude Code — you can expand it to see exactly what was sent and what came back.
+You can watch all of this in real time. Each tool call appears as a collapsible block in Claude Code — click it to see exactly what was sent and what came back. There is nothing hidden.
 
 ---
 
-## Warm-Up Questions (5 minutes)
+## Warm-Up: Ask ARIA to Introduce Herself (2 minutes)
 
-Start simple. Type these into the chat:
+Start with something simple to confirm she knows who she is:
 
 ```
 Hello! What can you help me with?
 ```
 
 ```
-How do you access my Gmail? Can you explain the security?
+How do you access my Gmail? Can I trust that you won't delete anything?
 ```
 
-These test that ARIA understands her own identity and can explain herself clearly.
+ARIA should explain herself clearly, including the gmail.readonly security boundary.
 
 ---
 
 ## Finding Receipts (10 minutes)
 
-Now try these — adapt them to what you actually buy:
+Try these questions — adapt them to what you actually buy:
 
-**General receipt search:**
+**General overview:**
 ```
-Search my Gmail for receipts and invoices from the last 30 days. 
-Give me a list grouped by category.
+Search my Gmail for receipts and invoices from the last 30 days.
+Group them by category and give me a summary.
 ```
 
 **Specific vendor:**
@@ -48,71 +48,78 @@ How much have I spent on Amazon in the last 3 months?
 
 **Subscriptions:**
 ```
-Find all recurring charges or subscriptions in my email. 
-List them with the amount and frequency.
+Find all recurring charges or subscriptions in my email.
+List them with the amount and frequency if you can find it.
 ```
 
-**Food & delivery:**
+**Food and delivery:**
 ```
-Find all food delivery receipts (Uber Eats, Wolt, Deliveroo, etc.) 
-from this month and total them up.
+Find all food delivery receipts from this month and total them up.
+```
+
+**Biggest expenses:**
+```
+What is the most expensive single purchase you can find in my inbox
+from the last 6 months?
 ```
 
 ---
 
-## Watch What Happens Under the Hood
+## Watch the Tool Calls
 
-In Claude Code, each tool call appears as a collapsible block. Click on one to see:
+In Claude Code, each time ARIA calls `search_emails` or `read_email`, a block appears in the chat. Click to expand it.
 
-- **Input:** the Gmail search query ARIA constructed
+You will see:
+- **Input:** the exact Gmail search query she used
 - **Output:** the raw list of emails returned
 
-This is important: ARIA is not guessing. She is reading actual emails from your account and reasoning about their content. You can verify any answer by finding the email yourself.
+This matters for two reasons:
+1. You can verify any answer by finding the email yourself
+2. You can correct her search if she used the wrong query: *"Try searching for 'factura' too, I have Spanish receipts"*
 
 ---
 
-## Asking Follow-Up Questions (5 minutes)
+## Follow-Up Questions (5 minutes)
 
-Agents remember the context of a conversation. Try:
-
-```
-Which of those was the most expensive?
-```
+Agents maintain context across a conversation. Try building on what she found:
 
 ```
-Can you break that down by month?
+Which of those was the most expensive single item?
 ```
 
 ```
-Was there anything that surprised you?
+Can you break the food spending down by month?
 ```
 
 ```
-Are there any charges that look unusual or that I might have forgotten about?
+Are there any charges that look unfamiliar or that I might have forgotten about?
+```
+
+```
+If I wanted to reduce spending by 10%, where would you start?
 ```
 
 ---
 
 ## If ARIA Finds Nothing
 
-Sometimes the search query doesn't match. Try rephrasing:
+Gmail search is case-insensitive and supports operators. If she gets no results, guide her:
 
-Instead of: `"find my bills"`  
-Try: `"search for emails with the word invoice, receipt, or order confirmation"`
+Instead of: *"find my bills"*
+Try telling her: *"search for emails containing the words invoice, receipt, or order confirmation"*
 
-Gmail search is powerful. ARIA uses the same syntax as the Gmail search bar. You can also tell her exactly what to search for:
-
+Or be more specific:
 ```
-Search for emails from: noreply@amazon.com in the last 60 days
+Search for emails from noreply@amazon.com in the last 90 days
 ```
 
 ---
 
 ## A Note on Privacy
 
-Everything you ask ARIA stays in your conversation with Claude. The email content is sent to Anthropic's servers for Claude to reason about — the same as if you had copy-pasted an email into any Claude chat. Anthropic's privacy policy applies.
+Email content is sent to Anthropic's servers for Claude to reason about — the same as if you copy-pasted an email into any Claude chat. Anthropic's standard privacy policy applies.
 
-What does NOT happen: your emails going through any third-party server we built or control. The path is: Gmail → your laptop → Claude's API.
+What does NOT happen: your emails going through any server we built or control. The path is strictly: **Gmail → your laptop → Claude's API**.
 
 ---
 

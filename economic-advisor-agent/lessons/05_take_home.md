@@ -7,75 +7,89 @@
 
 You now have a working personal AI agent that:
 
-- Has an identity and rules defined in plain text (`CLAUDE.md`)
+- Has an identity and rules defined in plain language (`CLAUDE.md`)
 - Can read your Gmail receipts with Google-enforced read-only access
 - Remembers what it learns across sessions (the `memory/` folder)
-- Runs entirely on your laptop — no cloud service, no monthly fee beyond Claude
+- Runs entirely on your laptop — no cloud service required beyond Claude
 
 This is not a demo. This is your agent. It works after the workshop ends.
 
 ---
 
-## Ideas for Making It Yours
+## Make It More Yours — Edit `CLAUDE.md`
 
-**Change the agent's behavior — just edit `CLAUDE.md`:**
+Everything in `CLAUDE.md` shapes ARIA's behavior. No code, just text. Ideas:
 
-- Add a rule: *"Always compare this month's spending to last month"*
-- Add a rule: *"If you find a charge over 200 euros, always highlight it"*
-- Add a focus area: *"I'm particularly interested in travel expenses"*
-- Restrict scope: *"Only analyze emails from the last 6 months"*
+- **Add a standing rule:** *"Always compare this month's spending to last month"*
+- **Add a threshold:** *"Highlight any single expense over 150 euros"*
+- **Add a focus area:** *"I am particularly interested in tracking subscription creep"*
+- **Change the tone:** Add a line like *"Be direct and give me numbers first, context second"*
+- **Restrict scope:** *"Only analyze emails from the past 12 months"*
 
-**Pre-load the memory:**
+Every time you save `CLAUDE.md` and start a new conversation, ARIA reflects the change.
 
-Open `memory/user_financial_profile.md` and fill in:
+---
+
+## Pre-Load the Memory
+
+Open `memory/user_financial_profile.md` and fill in what you already know:
 - Your actual monthly budget per category
-- Subscriptions you already know about (so ARIA skips them or confirms them)
-- Vendors to always flag
+- Subscriptions you've confirmed (so ARIA doesn't keep re-analyzing them)
+- Vendors you always want flagged
+- How you like data presented (table vs. bullet points, monthly vs. weekly)
 
-**Add new query templates to Lesson 03:**
-
-When you find a question that gives great results, write it down. Build your own library of prompts.
-
----
-
-## Going Further (Optional, Technical)
-
-If you want to extend the agent's capabilities, you can add new tools to `mcp_gmail_server.py`:
-
-**Ideas:**
-- `list_senders_by_frequency` — who emails you most often?
-- `find_unsubscribe_links` — find emails with unsubscribe buttons (useful for subscription cleanup)
-- `extract_amounts` — use regex to pull all currency amounts from a search result
-- Connect a second MCP server (e.g., Google Sheets) to export spending data
-
-Each new tool is a Python function with a `@mcp.tool()` decorator — the same pattern as `search_emails` and `read_email`.
+The more you fill in, the less you need to repeat yourself in conversation.
 
 ---
 
-## Sharing the Agent With a Colleague
+## Build Your Own Prompt Library
 
-1. Zip the `economic-advisor-agent/` folder
-2. Make sure `credentials.json` and `token.json` are NOT included (they are personal)
-3. Your colleague follows Lesson 01 to get their own credentials
-4. They drop their `credentials.json` into the folder
-5. They have their own instance, connected to their own Gmail
+When you find a question that gives consistently great results, write it down. Over time you'll build a personal set of go-to prompts:
 
-The agent's identity (`CLAUDE.md`) and structure are the same. Only the Gmail credentials are personal.
+- Your weekly check-in question
+- Your end-of-month summary request
+- Your subscription audit prompt
+
+There is no special file for this — a sticky note or a note in `CLAUDE.md` under a "My Favorite Questions" section both work.
+
+---
+
+## Share the Agent With a Colleague
+
+1. Copy the `economic-advisor-agent/` folder to their machine
+2. Make sure `credentials.json` and `token.json` are **not** included — those are personal
+3. They follow Lesson 00 to get their own `credentials.json`
+4. They open the folder in Claude Code
+
+The agent's identity and structure are shared. The Gmail credentials are personal to each user.
+
+---
+
+## Going Further (Optional, for the Curious)
+
+If you want to extend the agent's capabilities, you can add new tools to `mcp_gmail_server.py`. Each tool is a Python function with a `@mcp.tool()` decorator — the same pattern as `search_emails` and `read_email`.
+
+**Ideas for new tools:**
+- `list_top_senders` — who emails you the most receipts?
+- `find_large_amounts` — search for emails containing amounts over a threshold
+- Connect a second MCP server (e.g., Google Sheets) to export spending summaries automatically
+
+This is where non-trivial customization requires coding — but the agent itself (CLAUDE.md + memory) is fully yours without touching any code.
 
 ---
 
 ## The Bigger Picture
 
-What you built today follows the same pattern used to build much more sophisticated agents:
+What you built today follows the same architecture used in much more sophisticated production agents:
 
 | What you built | Production equivalent |
 |---|---|
 | `CLAUDE.md` | System prompt / agent configuration |
 | `mcp_gmail_server.py` | MCP server / tool integration |
-| `memory/*.md` | Vector database / persistent memory store |
+| `memory/*.md` | Persistent memory / knowledge store |
 | `.claude/settings.json` | Agent runtime configuration |
 
-The concepts scale. A team-level agent would have the same parts — just with more tools, more structured memory, and multiple users.
+The concepts scale. A team-level agent has the same four parts — just with more tools, more structured memory, and access controls for multiple users.
 
 ---
 
@@ -83,25 +97,23 @@ The concepts scale. A team-level agent would have the same parts — just with m
 
 | Problem | Fix |
 |---|---|
-| "credentials.json not found" | Make sure the file is in the agent folder, not Downloads |
-| Gmail asks to re-authorize | Delete `token.json` and re-run `python mcp_gmail_server.py` |
-| ARIA doesn't find any emails | Try simpler queries: `receipt`, `invoice`, `order` |
-| ARIA forgot something | Check `memory/MEMORY.md` — did she save it? |
-| MCP not connecting | Restart Claude Code with the agent folder open |
+| `credentials.json not found` | File must be inside the agent folder, not in Downloads |
+| Gmail asks to re-authorize | Delete `token.json`, run `python mcp_gmail_server.py` in a terminal |
+| ARIA finds no emails | Use simpler terms: `receipt`, `invoice`, `order`, `confirmation` |
+| ARIA forgot something | Open `memory/MEMORY.md` — did the file get created? |
+| MCP not connecting | Close and reopen Claude Code with the agent folder |
 
 ---
 
 ## Thank You
 
-You now know:
-- What an agent is and how it differs from a chatbot
-- How `CLAUDE.md` defines an agent's identity
+You now understand:
+- What makes an AI agent different from a chatbot
+- How `CLAUDE.md` defines an agent's identity in plain language
 - How MCP tools give an agent access to external systems
-- How read-only OAuth scopes enforce security at the API level
-- How file-based memory persists across conversations
+- How `gmail.readonly` enforces security at Google's API level
+- How file-based memory persists what an agent learns
 
-These are the building blocks of every AI agent, from personal tools to enterprise systems.
+These are the building blocks of every AI agent — from a personal tool on a laptop to an enterprise system running at scale.
 
----
-
-*Questions? Reach out to the workshop organizer. The agent folder is yours to keep.*
+*The agent folder is yours. Keep building.*

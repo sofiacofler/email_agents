@@ -3,114 +3,114 @@
 
 ---
 
-## The Problem With Chatbots
+## The Problem With Regular Chatbots
 
-Every time you start a new conversation with a regular chatbot, it has forgotten everything. You have to repeat yourself:
-- "My budget for food is 400 euros per month"
-- "I prefer summaries in bullet points"
-- "I use euros, not dollars"
+Every time you start a new conversation with a chatbot, it has forgotten everything:
+- "My budget for food is 400 euros per month" — forgotten
+- "I prefer bullet points" — forgotten
+- "I use euros, not dollars" — forgotten
 
-An agent with memory doesn't have this problem.
+You repeat yourself every session. An agent with a memory bank doesn't have this problem.
 
 ---
 
 ## How ARIA's Memory Works
 
-ARIA's memory is just a folder of text files:
+ARIA's memory is a folder of plain text files on your laptop:
 
 ```
 memory/
-├── MEMORY.md                    ← the index (what exists)
-└── user_financial_profile.md    ← a memory file
-    (more files created as needed)
+├── MEMORY.md                    ← the index (what files exist)
+└── user_financial_profile.md    ← one memory file
+    (more files appear as ARIA learns things)
 ```
 
 When ARIA learns something worth keeping, she:
-1. Writes it to a file in `memory/`
-2. Adds a line to `MEMORY.md` pointing to it
+1. Creates or updates a file in `memory/`
+2. Adds or updates a line in `MEMORY.md` pointing to it
 
-When you start a new conversation, Claude Code automatically loads `MEMORY.md`. ARIA reads the index and knows what she remembers — and can read any specific file when needed.
+When you start a new conversation, Claude Code loads `MEMORY.md` automatically. ARIA reads the index and knows what to remember — without you saying anything.
 
-**This is not magic. It is a text file.** You can open it, edit it, or delete entries.
+**This is not magic. It is a text file.** You can open it, edit it, delete entries, or pre-fill it before the first conversation.
 
 ---
 
-## Teaching ARIA Something
+## Teach ARIA Something (5 minutes)
 
-Try these phrases in the chat:
+Try these in the chat:
 
 ```
 Remember that my monthly budget for food is 500 euros.
 ```
 
 ```
-Remember that I don't use any streaming services — 
-flag anything that looks like Netflix or Spotify.
+Remember that I don't have any streaming service subscriptions.
+Flag anything that looks like Netflix, Spotify, or similar.
 ```
 
 ```
-Remember that I work for a company that reimburses travel expenses. 
+Remember that I work somewhere that reimburses travel expenses.
 When you find travel receipts, note which ones might be reimbursable.
 ```
 
-After each one, open `memory/MEMORY.md` and see what appeared. Then open the linked file to see the full memory entry.
+After each one, open `memory/MEMORY.md` in the file explorer and watch what appeared. Then open the linked file to read the full memory entry.
 
 ---
 
-## Verifying the Memory Works
+## Verify the Memory Works Across Sessions
 
-Start a **new conversation** (close the chat and open a new one in the same folder). Then ask:
+This is the key demonstration. Do the following:
+
+1. Close the current chat in Claude Code (start a new conversation)
+2. Type:
 
 ```
 What do you remember about my financial preferences?
 ```
 
-ARIA should be able to answer without you having told her anything in this new session — because she read it from the memory files.
+ARIA should answer accurately — without you having said anything in this new session.
 
-This is the key difference between a chatbot and an agent.
+That is the difference between a chatbot and an agent.
 
 ---
 
-## Editing Memory Directly
+## Edit Memory Directly
 
-Memory files are plain text. You can edit them like any document:
+Memory files are plain text. You do not need to ask ARIA to update them — you can edit them yourself like any document.
 
+Try it now:
 1. Open `memory/user_financial_profile.md`
-2. Fill in your currency, budget goals, preferences
+2. Fill in a few fields: currency, a budget goal, how you like summaries presented
 3. Save the file
+4. Start a new conversation and ask ARIA what she knows about you
 
-The next time you talk to ARIA, she will know what you wrote — no conversation required.
+She will reflect what you wrote, without any conversation having happened.
 
-This is powerful: you can pre-load an agent with knowledge before the first conversation.
+This is powerful for pre-loading an agent before first use.
 
 ---
 
-## Forgetting Something
+## Correcting a Wrong Memory
 
 If ARIA saved something incorrect, just tell her:
 
 ```
-Forget what you saved about my food budget — it was wrong.
+Forget what you saved about my food budget — the number was wrong.
 ```
 
-She will remove the entry from `MEMORY.md` and delete or update the file.
-
-You can also do it manually: open the file, delete the lines, save.
+She will remove or correct it. You can also do it manually: open the file, edit the line, save.
 
 ---
 
-## What's Worth Remembering?
+## What Is Worth Remembering?
 
-Good things to put in memory:
-- Budget limits per category
-- Currencies and preferred formats
-- Vendors you want flagged
-- Recurring subscriptions you've confirmed (so she doesn't re-analyze them)
-- How you like information presented
-
-Not worth putting in memory:
-- Specific past spending (that's in the emails — she can always look it up)
-- One-off questions or answers
+| Good to remember | Not worth remembering |
+|---|---|
+| Budget limits per category | Specific past purchases (emails are the source of truth) |
+| Currency and display preferences | One-off questions or answers |
+| Recurring subscriptions confirmed | Anything that changes often |
+| Vendors to always flag | |
+| How you like summaries presented | |
 
 ---
 
