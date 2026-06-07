@@ -67,14 +67,14 @@ The agent's identity and structure are shared. The Gmail credentials are persona
 
 ## Going Further (Optional, for the Curious)
 
-If you want to extend the agent's capabilities, you can add new tools to `mcp_gmail_server.py`. Each tool is a Python function with a `@mcp.tool()` decorator — the same pattern as `search_emails` and `read_email`.
+ARIA can already answer most financial questions using `search_emails` and `read_email` — she constructs the right queries and reasons over the results herself. You do not need new tools to ask "who sends me the most receipts?" or "find expenses over 200 euros" — just ask her.
 
-**Ideas for new tools:**
-- `list_top_senders` — who emails you the most receipts?
-- `find_large_amounts` — search for emails containing amounts over a threshold
-- Connect a second MCP server (e.g., Google Sheets) to export spending summaries automatically
+The only reason to add a new tool is to connect a **completely different system** that Gmail doesn't cover. For example:
+- A Google Sheets MCP to automatically export monthly summaries to a spreadsheet
+- A bank statement parser if your bank emails PDF attachments
+- A calendar MCP to correlate travel spending with trip dates
 
-This is where non-trivial customization requires coding — but the agent itself (CLAUDE.md + memory) is fully yours without touching any code.
+That level of extension requires coding. For everything that lives in your inbox, you already have what you need.
 
 ---
 
