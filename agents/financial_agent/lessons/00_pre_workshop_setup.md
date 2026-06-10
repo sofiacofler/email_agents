@@ -38,6 +38,4 @@ Bring your laptop to the workshop with:
 - [ ] Obsidian installed (or VS Code, if you already have it)
 - [ ] The `financial_agent/` folder on your machine
 
-We'll connect Gmail together at the start of the workshop.
-
 **See you at the workshop!**
