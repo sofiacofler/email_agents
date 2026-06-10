@@ -6,9 +6,9 @@
 ## What to Expect
 
 When ARIA searches your Gmail, you will see her:
-1. Call the `search_emails` tool with a query she constructs
+1. Call the Gmail search tool with a query she constructs
 2. Get back a list of results (subject, sender, date, preview)
-3. Call `read_email` on specific ones to get the full content
+3. Open specific emails to get the full content
 4. Synthesize everything into a human answer
 
 You can watch all of this in real time. Each tool call appears as a collapsible block in Claude Code — click it to see exactly what was sent and what came back. There is nothing hidden.
@@ -27,7 +27,7 @@ Hello! What can you help me with?
 How do you access my Gmail? Can I trust that you won't delete anything?
 ```
 
-ARIA should explain herself clearly, including the gmail.readonly security boundary.
+ARIA should explain herself clearly, including the read-only security boundary of the Gmail connector.
 
 ---
 
@@ -67,7 +67,7 @@ from the last 6 months?
 
 ## Watch the Tool Calls
 
-In Claude Code, each time ARIA calls `search_emails` or `read_email`, a block appears in the chat. Click to expand it.
+In Claude Code, each time ARIA searches or opens an email, a block appears in the chat. Click to expand it.
 
 You will see:
 - **Input:** the exact Gmail search query she used
@@ -119,7 +119,7 @@ Search for emails from noreply@amazon.com in the last 90 days
 
 Email content is sent to Anthropic's servers for Claude to reason about — the same as if you copy-pasted an email into any Claude chat. Anthropic's standard privacy policy applies.
 
-What does NOT happen: your emails going through any server we built or control. The path is strictly: **Gmail → your laptop → Claude's API**.
+What does NOT happen: your emails going through any server we built or control. The path is strictly: **Gmail → Anthropic's Gmail connector → Claude**.
 
 ---
 

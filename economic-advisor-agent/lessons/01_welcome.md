@@ -43,26 +43,26 @@ economic-advisor-agent/
 │
 ├── CLAUDE.md              ← Job description: who ARIA is, her rules
 │
-├── mcp_gmail_server.py    ← Her tool: reads Gmail, nothing else
+├── Gmail connector        ← Her tool: reads Gmail, nothing else
 │
 └── memory/
     └── MEMORY.md          ← Her desk: notes she keeps between sessions
 ```
 
-That's it. No database. No cloud server. No deployment. Everything runs on your laptop.
+That's it. No database. No cloud server. No deployment. No code.
 
 ---
 
 ## What is MCP?
 
-**MCP (Model Context Protocol)** is a standard way to give an AI access to external tools — the same way a browser extension connects a website to your desktop.
+**MCP (Model Context Protocol)** is a standard way to give an AI access to external tools — the same way a browser extension connects a website to your browser.
 
-In our case, the MCP server (`mcp_gmail_server.py`) is a small program that:
-- Connects to Gmail using your credentials
-- Gives ARIA two abilities: `search_emails` and `read_email`
-- Runs locally — emails travel from Google to your laptop, not through any other server
+In our case, the **Gmail connector** is built and hosted by Anthropic. It:
+- Connects to your Gmail account (you authorized it in Lesson 00)
+- Gives ARIA the ability to search your inbox and read individual emails
+- Is read-only — it cannot send, delete, or modify anything
 
-> **The security guarantee:** We use Google's `gmail.readonly` scope. This is not a setting or a promise — it is enforced by Google's authorization servers. Even if ARIA tried to delete an email, Google would return a "403 Forbidden" error. Physically impossible.
+> **The security guarantee:** The connector requests **read-only** access to your Gmail. This is not a setting or a promise — it is enforced by Google's authorization servers. Even if ARIA tried to delete an email, Google would reject the request. Physically impossible.
 
 ---
 

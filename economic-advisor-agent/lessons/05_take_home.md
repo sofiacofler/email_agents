@@ -57,17 +57,16 @@ There is no special file for this — a sticky note or a note in `CLAUDE.md` und
 ## Share the Agent With a Colleague
 
 1. Copy the `economic-advisor-agent/` folder to their machine
-2. Make sure `credentials.json` and `token.json` are **not** included — those are personal
-3. They follow Lesson 00 to get their own `credentials.json`
-4. They open the folder in Claude Code
+2. They open the folder in Claude Code
+3. They connect their own Gmail via Settings → Connectors (Lesson 00)
 
-The agent's identity and structure are shared. The Gmail credentials are personal to each user.
+The agent's identity and structure are shared. The Gmail connection is personal to each user.
 
 ---
 
 ## Going Further (Optional, for the Curious)
 
-ARIA can already answer most financial questions using `search_emails` and `read_email` — she constructs the right queries and reasons over the results herself. You do not need new tools to ask "who sends me the most receipts?" or "find expenses over 200 euros" — just ask her.
+ARIA can already answer most financial questions using the Gmail connector — she constructs the right searches and reasons over the results herself. You do not need new tools to ask "who sends me the most receipts?" or "find expenses over 200 euros" — just ask her.
 
 The only reason to add a new tool is to connect a **completely different system** that Gmail doesn't cover. For example:
 - A Google Sheets MCP to automatically export monthly summaries to a spreadsheet
@@ -85,11 +84,10 @@ What you built today follows the same architecture used in much more sophisticat
 | What you built | Production equivalent |
 |---|---|
 | `CLAUDE.md` | System prompt / agent configuration |
-| `mcp_gmail_server.py` | MCP server / tool integration |
+| Gmail connector | MCP server / tool integration |
 | `memory/*.md` | Persistent memory / knowledge store |
-| `.claude/settings.json` | Agent runtime configuration |
 
-The concepts scale. A team-level agent has the same four parts — just with more tools, more structured memory, and access controls for multiple users.
+The concepts scale. A team-level agent has the same parts — just with more tools, more structured memory, and access controls for multiple users.
 
 ---
 
@@ -97,11 +95,10 @@ The concepts scale. A team-level agent has the same four parts — just with mor
 
 | Problem | Fix |
 |---|---|
-| `credentials.json not found` | File must be inside the agent folder, not in Downloads |
-| Gmail asks to re-authorize | Delete `token.json`, run `python mcp_gmail_server.py` in a terminal |
+| Gmail asks to re-authorize | Settings → Connectors → reconnect Gmail |
 | ARIA finds no emails | Use simpler terms: `receipt`, `invoice`, `order`, `confirmation` |
 | ARIA forgot something | Open `memory/MEMORY.md` — did the file get created? |
-| MCP not connecting | Close and reopen Claude Code with the agent folder |
+| Gmail connector not available | Check it's connected and enabled in Settings → Connectors |
 
 ---
 
@@ -111,7 +108,7 @@ You now understand:
 - What makes an AI agent different from a chatbot
 - How `CLAUDE.md` defines an agent's identity in plain language
 - How MCP tools give an agent access to external systems
-- How `gmail.readonly` enforces security at Google's API level
+- How read-only access is enforced by Google at the authorization level
 - How file-based memory persists what an agent learns
 
 These are the building blocks of every AI agent — from a personal tool on a laptop to an enterprise system running at scale.

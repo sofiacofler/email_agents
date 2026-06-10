@@ -51,8 +51,7 @@ I will always tell you when I'm saving something.
 
 ## Technical Notes
 
-- Gmail access scope: `gmail.readonly` (enforced by Google — not just a setting)
-- MCP server: `mcp_gmail_server.py` (runs locally on your machine)
+- Gmail access: via Anthropic's official Gmail connector (read-only)
 - Memory index: `memory/MEMORY.md`
 
 ---

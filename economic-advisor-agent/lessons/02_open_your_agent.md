@@ -33,9 +33,6 @@ ARIA's notes. Currently it only has the starter profile. As you have conversatio
 ### `memory/user_financial_profile.md` — The Profile Template
 A template of what ARIA will learn about you. Fields are empty — she fills them in during conversations, or you can fill them in directly right now.
 
-### `.claude/settings.json` — The Wiring
-The technical connection. It tells Claude Code: "when this folder is open, run `mcp_gmail_server.py` as a tool." You do not need to change this.
-
 ---
 
 ## Step 3 — Customize ARIA (5 minutes)
@@ -69,7 +66,7 @@ Can you search my email for the word "receipt" and show me the 3 most recent res
 ```
 
 You should see ARIA:
-1. Call the `search_emails` tool (visible as a collapsible block in the chat)
+1. Call the Gmail search tool (visible as a collapsible block in the chat)
 2. Return a list of emails with subject, sender, and date
 3. Summarize what she found
 
@@ -79,9 +76,8 @@ You should see ARIA:
 
 | Error message | Fix |
 |---|---|
-| `credentials.json not found` | The file is missing from the folder — see Lesson 00 |
-| `token.json` not found / auth error | Run `python mcp_gmail_server.py` in a terminal, complete the browser auth |
-| MCP not connecting | Close and reopen Claude Code with this folder |
+| Gmail tool not available / not connected | Go to Settings → Connectors and check Gmail is connected (see Lesson 00) |
+| Asked to re-authorize | Reconnect the Gmail connector in Settings → Connectors |
 | No results found | Try: `"search for invoice OR order OR confirmation"` |
 
 ---
@@ -92,11 +88,11 @@ You should see ARIA:
 
 To share ARIA with a colleague:
 1. Copy the folder to their machine
-2. They add their own `credentials.json`
-3. They open it in Claude Code
+2. They open it in Claude Code
+3. They connect their own Gmail via the connector (Lesson 00)
 4. They have their own instance, connected to their own Gmail
 
-The agent's identity and behavior travel with the folder. The only personal part is the credentials.
+The agent's identity and behavior travel with the folder. The Gmail connection is personal to each user.
 
 ---
 

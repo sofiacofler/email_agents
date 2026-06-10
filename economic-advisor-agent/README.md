@@ -5,11 +5,11 @@
 
 ## What Is This?
 
-A fully working AI agent that reads your Gmail receipts and helps you understand your spending. Built with Claude Code and a local Gmail MCP server.
+A fully working AI agent that reads your Gmail receipts and helps you understand your spending. Built with Claude Code and Anthropic's official Gmail connector — no code, no installs beyond Claude itself.
 
 **Workshop duration:** 1.5 hours (hands-on, in-person)
 **Audience:** HiTech professionals, no coding experience required
-**Pre-workshop setup:** ~25 minutes at home (see Lesson 00)
+**Pre-workshop setup:** ~10 minutes at home (see Lesson 00)
 **Take-home:** Yes — the agent keeps working after the workshop
 
 ---
@@ -18,7 +18,7 @@ A fully working AI agent that reads your Gmail receipts and helps you understand
 
 | File | When | Topic | Time |
 |---|---|---|---|
-| [lessons/00_pre_workshop_setup.md](lessons/00_pre_workshop_setup.md) | **At home, before the workshop** | Install Python, Claude Code, connect Gmail | ~25 min |
+| [lessons/00_pre_workshop_setup.md](lessons/00_pre_workshop_setup.md) | **At home, before the workshop** | Install Claude Code, connect Gmail | ~10 min |
 | [lessons/01_welcome.md](lessons/01_welcome.md) | Workshop | What is an agent? What are we building? | 15 min |
 | [lessons/02_open_your_agent.md](lessons/02_open_your_agent.md) | Workshop | Open the folder, explore files, customize, first run | 20 min |
 | [lessons/03_first_conversation.md](lessons/03_first_conversation.md) | Workshop | First conversation — ask ARIA about your spending | 20 min |
@@ -29,12 +29,8 @@ A fully working AI agent that reads your Gmail receipts and helps you understand
 
 ## What You Need Before the Workshop
 
-- [ ] Python 3.9+ installed
-- [ ] Claude Code installed and signed in
-- [ ] Google Cloud credentials set up (see Lesson 00)
-- [ ] `credentials.json` inside this folder
-- [ ] `pip install -r requirements.txt` completed
-- [ ] Gmail browser authorization done (`token.json` created)
+- [ ] Claude Code (or Claude Desktop) installed and signed in
+- [ ] Gmail connected via Anthropic's Gmail connector (see Lesson 00)
 
 Full instructions: [lessons/00_pre_workshop_setup.md](lessons/00_pre_workshop_setup.md)
 
@@ -46,16 +42,10 @@ Full instructions: [lessons/00_pre_workshop_setup.md](lessons/00_pre_workshop_se
 economic-advisor-agent/
 │
 ├── CLAUDE.md                      ← ARIA's identity, purpose, and rules (edit this)
-├── mcp_gmail_server.py            ← Gmail tool — read-only, pre-built
-├── requirements.txt               ← Python dependencies
-├── credentials.json.example       ← Template — replace with your own
 │
 ├── memory/
 │   ├── MEMORY.md                  ← Index of what ARIA remembers
 │   └── user_financial_profile.md  ← Your financial profile (fill this in)
-│
-├── .claude/
-│   └── settings.json              ← Wires the MCP server to Claude Code
 │
 └── lessons/
     ├── 00_pre_workshop_setup.md
@@ -72,11 +62,11 @@ economic-advisor-agent/
 
 | Question | Answer |
 |---|---|
-| Can ARIA send emails? | No — `gmail.readonly` scope, enforced by Google's API |
-| Can ARIA delete emails? | No — same reason. Attempts return a 403 error from Google |
-| Does Anthropic see my emails? | Yes — content is sent to Claude's API for reasoning (same as pasting into any Claude chat) |
-| Does any other server see my emails? | No — path is Gmail → your laptop → Claude API only |
-| Can I revoke access? | Yes — Google Account → Security → Third-party apps → remove ARIA Advisor |
+| Can ARIA send emails? | No — the Gmail connector is read-only |
+| Can ARIA delete emails? | No — same reason |
+| Does Anthropic see my emails? | Yes — content is sent to Claude for reasoning (same as pasting into any Claude chat) |
+| Does any other server see my emails? | No — the connection goes directly through Anthropic's Gmail connector |
+| Can I revoke access? | Yes — in Claude's Settings → Connectors, disconnect Gmail. You can also remove access from your Google Account → Security → Third-party apps |
 
 ---
 
@@ -84,8 +74,6 @@ economic-advisor-agent/
 
 | Problem | Fix |
 |---|---|
-| `credentials.json not found` | File must be in this folder, not in Downloads |
-| Browser doesn't open for auth | Run `python mcp_gmail_server.py` in a terminal first |
 | ARIA finds no receipts | Try: `"search for emails with the word receipt or invoice"` |
-| MCP not connecting | Close and reopen Claude Code with this folder |
-| Token expired | Delete `token.json`, run `python mcp_gmail_server.py` again |
+| Gmail connector not working | Settings → Connectors → check Gmail is connected, reconnect if needed |
+| ARIA can't access Gmail at all | Make sure the Gmail connector is enabled for this conversation/project |
