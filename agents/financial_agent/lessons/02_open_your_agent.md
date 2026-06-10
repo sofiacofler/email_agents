@@ -6,7 +6,7 @@
 ## Step 1 — Activate ARIA in Claude Code
 
 1. Open **Claude Code** (the desktop app)
-2. Click **Open Folder** and select the `economic-advisor-agent/` folder
+2. Click **Open Folder** and select the `financial_agent/` folder
 3. Claude Code reads `CLAUDE.md` automatically on startup
 
 That's it. ARIA is now active. Every conversation in this folder uses her identity, rules, and memory.
@@ -57,31 +57,6 @@ In `CLAUDE.md`, find the "My Rules" section and add something like:
 
 ---
 
-## Step 4 — First Run: Verify Everything Works
-
-Let's confirm the Gmail connection is working. Type this into the chat:
-
-```
-Can you search my email for the word "receipt" and show me the 3 most recent results?
-```
-
-You should see ARIA:
-1. Call the Gmail search tool (visible as a collapsible block in the chat)
-2. Return a list of emails with subject, sender, and date
-3. Summarize what she found
-
-**If it works:** great — move to Lesson 03.
-
-**If you see an error:**
-
-| Error message | Fix |
-|---|---|
-| Gmail tool not available / not connected | Go to Settings → Connectors and check Gmail is connected (see Lesson 00) |
-| Asked to re-authorize | Reconnect the Gmail connector in Settings → Connectors |
-| No results found | Try: `"search for invoice OR order OR confirmation"` |
-
----
-
 ## The Key Insight
 
 > **The agent is the folder.**
@@ -89,11 +64,11 @@ You should see ARIA:
 To share ARIA with a colleague:
 1. Copy the folder to their machine
 2. They open it in Claude Code
-3. They connect their own Gmail via the connector (Lesson 00)
+3. They connect their own Gmail via the connector
 4. They have their own instance, connected to their own Gmail
 
 The agent's identity and behavior travel with the folder. The Gmail connection is personal to each user.
 
 ---
 
-*Everything working? Open `lessons/03_first_conversation.md`*
+*Done? Open `lessons/03_connect_gmail.md` to connect ARIA to your Gmail.*

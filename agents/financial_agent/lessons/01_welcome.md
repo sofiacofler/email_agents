@@ -39,7 +39,7 @@ By the end of this workshop you will have made ARIA your own and had your first 
 ## The Three Things That Make ARIA an Agent
 
 ```
-economic-advisor-agent/
+financial_agent/
 │
 ├── CLAUDE.md              ← Job description: who ARIA is, her rules
 │
@@ -58,7 +58,7 @@ That's it. No database. No cloud server. No deployment. No code.
 **MCP (Model Context Protocol)** is a standard way to give an AI access to external tools — the same way a browser extension connects a website to your browser.
 
 In our case, the **Gmail connector** is built and hosted by Anthropic. It:
-- Connects to your Gmail account (you authorized it in Lesson 00)
+- Connects to your Gmail account (we'll set this up in Lesson 03)
 - Gives ARIA the ability to search your inbox and read individual emails
 - Is read-only — it cannot send, delete, or modify anything
 
@@ -71,13 +71,14 @@ In our case, the **Gmail connector** is built and hosted by Anthropic. It:
 | # | Lesson | Time |
 |---|---|---|
 | 02 | Open your agent — explore and customize | 20 min |
-| 03 | First conversation — ask ARIA about your spending | 20 min |
-| 04 | Memory bank — teach ARIA, watch her remember | 15 min |
-| 05 | Take home — make it yours | 10 min |
+| 03 | Connect Gmail | 5 min |
+| 04 | First conversation — ask ARIA about your spending | 20 min |
+| 05 | Memory bank — teach ARIA, watch her remember | 15 min |
+| 06 | Take home — make it yours | 10 min |
 
-**Total: ~65 minutes + buffer**
+**Total: ~70 minutes + buffer**
 
-You've already done the hard part at home (setup). Today is all about using and understanding what you built.
+You've already done the easy part at home (installing Claude Code). Today is all about connecting ARIA to your inbox and using what you built.
 
 ---
 

@@ -1,5 +1,28 @@
-# Lesson 03 — First Conversation
+# Lesson 04 — First Conversation
 **Time: 20 minutes**
+
+---
+
+## First Run: Verify the Connection Works
+
+Let's confirm the Gmail connection is working. Type this into the chat:
+
+```
+Can you search my email for the word "receipt" and show me the 3 most recent results?
+```
+
+You should see ARIA:
+1. Call the Gmail search tool (visible as a collapsible block in the chat)
+2. Return a list of emails with subject, sender, and date
+3. Summarize what she found
+
+**If you see an error:**
+
+| Error message | Fix |
+|---|---|
+| Gmail tool not available / not connected | Go to Settings → Connectors and check Gmail is connected (see Lesson 03) |
+| Asked to re-authorize | Reconnect the Gmail connector in Settings → Connectors |
+| No results found | Try: `"search for invoice OR order OR confirmation"` |
 
 ---
 
@@ -123,4 +146,4 @@ What does NOT happen: your emails going through any server we built or control. 
 
 ---
 
-*Done? Open `lessons/04_memory_bank.md`*
+*Done? Open `lessons/05_memory_bank.md`*

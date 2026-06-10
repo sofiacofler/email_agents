@@ -1,4 +1,4 @@
-# Lesson 05 — Take It Home
+# Lesson 06 — Take It Home
 **Time: 10 minutes**
 
 ---
@@ -56,9 +56,9 @@ There is no special file for this — a sticky note or a note in `CLAUDE.md` und
 
 ## Share the Agent With a Colleague
 
-1. Copy the `economic-advisor-agent/` folder to their machine
+1. Copy the `financial_agent/` folder to their machine
 2. They open the folder in Claude Code
-3. They connect their own Gmail via Settings → Connectors (Lesson 00)
+3. They connect their own Gmail via Settings → Connectors (Lesson 03)
 
 The agent's identity and structure are shared. The Gmail connection is personal to each user.
 

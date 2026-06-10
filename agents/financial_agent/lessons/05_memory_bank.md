@@ -1,4 +1,4 @@
-# Lesson 04 — The Memory Bank
+# Lesson 05 — The Memory Bank
 **Time: 15 minutes**
 
 ---
@@ -114,4 +114,4 @@ She will remove or correct it. You can also do it manually: open the file, edit 
 
 ---
 
-*Done? Open `lessons/05_take_home.md`*
+*Done? Open `lessons/06_take_home.md`*

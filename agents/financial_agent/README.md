@@ -9,7 +9,7 @@ A fully working AI agent that reads your Gmail receipts and helps you understand
 
 **Workshop duration:** 1.5 hours (hands-on, in-person)
 **Audience:** HiTech professionals, no coding experience required
-**Pre-workshop setup:** ~10 minutes at home (see Lesson 00)
+**Pre-workshop setup:** ~5 minutes at home (see Lesson 00)
 **Take-home:** Yes — the agent keeps working after the workshop
 
 ---
@@ -18,28 +18,30 @@ A fully working AI agent that reads your Gmail receipts and helps you understand
 
 | File | When | Topic | Time |
 |---|---|---|---|
-| [lessons/00_pre_workshop_setup.md](lessons/00_pre_workshop_setup.md) | **At home, before the workshop** | Install Claude Code, connect Gmail | ~10 min |
+| [lessons/00_pre_workshop_setup.md](lessons/00_pre_workshop_setup.md) | **At home, before the workshop** | Install Claude Code | ~5 min |
 | [lessons/01_welcome.md](lessons/01_welcome.md) | Workshop | What is an agent? What are we building? | 15 min |
-| [lessons/02_open_your_agent.md](lessons/02_open_your_agent.md) | Workshop | Open the folder, explore files, customize, first run | 20 min |
-| [lessons/03_first_conversation.md](lessons/03_first_conversation.md) | Workshop | First conversation — ask ARIA about your spending | 20 min |
-| [lessons/04_memory_bank.md](lessons/04_memory_bank.md) | Workshop | Teach ARIA, watch her remember across sessions | 15 min |
-| [lessons/05_take_home.md](lessons/05_take_home.md) | Workshop | Make it yours, go further | 10 min |
+| [lessons/02_open_your_agent.md](lessons/02_open_your_agent.md) | Workshop | Open the folder, explore files, customize | 20 min |
+| [lessons/03_connect_gmail.md](lessons/03_connect_gmail.md) | Workshop | Connect Gmail via the official connector | 5 min |
+| [lessons/04_first_conversation.md](lessons/04_first_conversation.md) | Workshop | First conversation — ask ARIA about your spending | 20 min |
+| [lessons/05_memory_bank.md](lessons/05_memory_bank.md) | Workshop | Teach ARIA, watch her remember across sessions | 15 min |
+| [lessons/06_take_home.md](lessons/06_take_home.md) | Workshop | Make it yours, go further | 10 min |
 
 ---
 
 ## What You Need Before the Workshop
 
 - [ ] Claude Code (or Claude Desktop) installed and signed in
-- [ ] Gmail connected via Anthropic's Gmail connector (see Lesson 00)
 
 Full instructions: [lessons/00_pre_workshop_setup.md](lessons/00_pre_workshop_setup.md)
+
+Gmail is connected together at the start of the workshop (Lesson 03).
 
 ---
 
 ## Folder Structure
 
 ```
-economic-advisor-agent/
+financial_agent/
 │
 ├── CLAUDE.md                      ← ARIA's identity, purpose, and rules (edit this)
 │
@@ -51,9 +53,10 @@ economic-advisor-agent/
     ├── 00_pre_workshop_setup.md
     ├── 01_welcome.md
     ├── 02_open_your_agent.md
-    ├── 03_first_conversation.md
-    ├── 04_memory_bank.md
-    └── 05_take_home.md
+    ├── 03_connect_gmail.md
+    ├── 04_first_conversation.md
+    ├── 05_memory_bank.md
+    └── 06_take_home.md
 ```
 
 ---
