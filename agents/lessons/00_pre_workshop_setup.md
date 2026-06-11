@@ -1,5 +1,5 @@
 # Before the Workshop — Setup at Home
-**Do this before you arrive. Estimated time: 5 minutes.**
+**Do this before you arrive. Estimated time: 15 minutes.**
 
 ---
 
@@ -26,7 +26,7 @@ Obsidian is a free notes app that lets you browse and view the agent's files (li
 
 ## The Agent Folder
 
-You received a folder called `financial_agent/`. Place it somewhere easy to find on your computer (Desktop or Documents works fine).
+A week before the workshop, you'll receive a zip file called `workshop_agent.zip`. Extract its contents and place them somewhere easy to find on your computer (Desktop or Documents works fine).
 
 ---
 
@@ -36,6 +36,6 @@ Bring your laptop to the workshop with:
 
 - [ ] Claude Code installed and signed in
 - [ ] Obsidian installed (or VS Code, if you already have it)
-- [ ] The `financial_agent/` folder on your machine
+- [ ] The `workshop_agent.zip` extracted on your machine
 
 **See you at the workshop!**

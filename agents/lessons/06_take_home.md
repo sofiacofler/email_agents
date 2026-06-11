@@ -52,15 +52,6 @@ When you find a question that gives consistently great results, write it down. O
 
 There is no special file for this — a sticky note or a note in `CLAUDE.md` under a "My Favorite Questions" section both work.
 
----
-
-## Share the Agent With a Colleague
-
-1. Copy the `financial_agent/` folder to their machine
-2. They open the folder in Claude Code
-3. They connect their own Gmail via Settings → Connectors (Lesson 03)
-
-The agent's identity and structure are shared. The Gmail connection is personal to each user.
 
 ---
 
