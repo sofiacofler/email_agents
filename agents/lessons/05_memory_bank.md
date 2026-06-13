@@ -3,14 +3,14 @@
 
 ---
 
-## The Problem With Regular Chatbots
+## Why Memory Matters
 
-Every time you start a new conversation with a chatbot, it has forgotten everything:
+Without memory, every new conversation starts from zero:
 - "My budget for food is 400 euros per month" — forgotten
 - "I prefer bullet points" — forgotten
 - "I use euros, not dollars" — forgotten
 
-You repeat yourself every session. An agent with a memory bank doesn't have this problem.
+You'd have to repeat yourself every session. ARIA's memory bank — one of the three things that make her an agent (Lesson 01) — solves this.
 
 ---
 
@@ -70,7 +70,7 @@ What do you remember about my financial preferences?
 
 ARIA should answer accurately — without you having said anything in this new session.
 
-That is the difference between a chatbot and an agent.
+That's memory in action — exactly what we covered in Lesson 01.
 
 ---
 

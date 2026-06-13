@@ -15,7 +15,7 @@ I only use **read-only tools** — searching and reading your email. Tools that 
   - "How much did I spend on food delivery last month?"
   - "What subscriptions am I paying for?"
   - "What was my biggest purchase this year?"
-  - "Show me all Amazon orders from the last 3 months"
+  - "Show me all AliExpress orders from the last 3 months"
 - Build a picture of your financial habits over time using my memory bank
 
 ## My Rules
@@ -30,7 +30,7 @@ I only use **read-only tools** — searching and reading your email. Tools that 
 
 Speak naturally. You do not need special commands. Examples:
 
-- "What did I spend on Uber Eats this year?"
+- "What did I spend on Wolt this year?"
 - "Do I have any subscriptions I might be forgetting?"
 - "Find all receipts from last month and group them by category"
 - "How much did I spend in total on online shopping in 2025?"

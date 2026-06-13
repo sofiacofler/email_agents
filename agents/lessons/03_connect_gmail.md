@@ -3,7 +3,7 @@
 
 ---
 
-ARIA needs permission to read your Gmail before she can do anything useful. We use Anthropic's official Gmail connector — the same kind of "Sign in with Google" flow you've used on other websites. A few clicks, no files to download, no code.
+ARIA needs permission to read your Gmail before she can do anything useful. We use Google's Gmail connector — the same kind of "Sign in with Google" flow you've used on other websites. A few clicks, no files to download, no code.
 
 ---
 
@@ -17,7 +17,7 @@ In Claude Code (or Claude Desktop), open **Settings → Connectors**.
 
 1. Find **Gmail** in the list of connectors and click **Connect** (or **Add**)
 2. A browser window will open and ask you to sign in with the Google account whose receipts you want to analyze
-3. Review the permissions screen — it should show **read-only** access (view your email messages and settings)
+3. Review the permissions screen — Google may list more than just reading (e.g., managing drafts). That's expected; Step 3 below locks down what ARIA is actually allowed to use
 4. Click **Allow**
 
 ---

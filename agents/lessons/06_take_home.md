@@ -8,7 +8,7 @@
 You now have a working personal AI agent that:
 
 - Has an identity and rules defined in plain language (`CLAUDE.md`)
-- Can read your Gmail receipts with Google-enforced read-only access
+- Can read your Gmail receipts, with write tools blocked by Claude's connector settings
 - Remembers what it learns across sessions (the `memory/` folder)
 - Runs entirely on your laptop — no cloud service required beyond Claude
 
@@ -71,10 +71,10 @@ That level of extension requires coding. For everything that lives in your inbox
 ## Thank You
 
 You now understand:
-- What makes an AI agent different from a chatbot
+- What makes something an AI agent (reasoning, tools, and memory)
 - How `CLAUDE.md` defines an agent's identity in plain language
 - How MCP tools give an agent access to external systems
-- How read-only access is enforced by Google at the authorization level
+- How tool permissions block ARIA from writing to your Gmail, even if she tried
 - How file-based memory persists what an agent learns
 
 These are the building blocks of every AI agent — from a personal tool on a laptop to an enterprise system running at scale.

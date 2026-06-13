@@ -50,7 +50,7 @@ Hello! What can you help me with?
 How do you access my Gmail? Can I trust that you won't delete anything?
 ```
 
-ARIA should explain herself clearly, including the read-only security boundary of the Gmail connector.
+ARIA should explain herself clearly, including the tool-permission boundary set up in Lesson 03 (read-only tools allowed, write tools blocked).
 
 ---
 
@@ -142,7 +142,7 @@ Search for emails from noreply@amazon.com in the last 90 days
 
 Email content is sent to Anthropic's servers for Claude to reason about — the same as if you copy-pasted an email into any Claude chat. Anthropic's standard privacy policy applies.
 
-What does NOT happen: your emails going through any server we built or control. The path is strictly: **Gmail → Anthropic's Gmail connector → Claude**.
+What does NOT happen: your emails going through any server we built or control. The path is strictly: **Gmail → Google's Gmail connector → Claude**.
 
 ---
 
