@@ -25,6 +25,7 @@ A fully working AI agent that reads your Gmail receipts and helps you understand
 | [lessons/04_first_conversation.md](lessons/04_first_conversation.md) | Workshop | First conversation — ask ARIA about your spending | 20 min |
 | [lessons/05_memory_bank.md](lessons/05_memory_bank.md) | Workshop | Teach ARIA, watch her remember across sessions | 15 min |
 | [lessons/06_take_home.md](lessons/06_take_home.md) | Workshop | Make it yours, go further | 10 min |
+| [lessons/07_custom_skills.md](lessons/07_custom_skills.md) | Workshop (bonus, only if time allows) | Build a reusable Skill for repeatable tasks | ~15 min |
 
 ---
 
@@ -59,7 +60,8 @@ Gmail is connected together at the start of the workshop (Lesson 03).
     ├── 03_connect_gmail.md
     ├── 04_first_conversation.md
     ├── 05_memory_bank.md
-    └── 06_take_home.md
+    ├── 06_take_home.md
+    └── 07_custom_skills.md    ← bonus, only if time allows
 ```
 
 ---
