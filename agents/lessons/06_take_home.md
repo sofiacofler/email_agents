@@ -40,18 +40,6 @@ Open `memory/user_financial_profile.md` and fill in what you already know:
 
 The more you fill in, the less you need to repeat yourself in conversation.
 
----
-
-## Build Your Own Prompt Library
-
-When you find a question that gives consistently great results, write it down. Over time you'll build a personal set of go-to prompts:
-
-- Your weekly check-in question
-- Your end-of-month summary request
-- Your subscription audit prompt
-
-There is no special file for this — a sticky note or a note in `CLAUDE.md` under a "My Favorite Questions" section both work.
-
 
 ---
 
@@ -68,19 +56,6 @@ That level of extension requires coding. For everything that lives in your inbox
 
 ---
 
-## The Bigger Picture
-
-What you built today follows the same architecture used in much more sophisticated production agents:
-
-| What you built | Production equivalent |
-|---|---|
-| `CLAUDE.md` | System prompt / agent configuration |
-| Gmail connector | MCP server / tool integration |
-| `memory/*.md` | Persistent memory / knowledge store |
-
-The concepts scale. A team-level agent has the same parts — just with more tools, more structured memory, and access controls for multiple users.
-
----
 
 ## Troubleshooting Reference
 
